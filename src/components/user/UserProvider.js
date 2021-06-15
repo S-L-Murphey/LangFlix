@@ -1,14 +1,14 @@
 import React, { useState, createContext } from "react"
 
-export const UserContext = createContext()
+export const UserLikesContext = createContext()
 
-export const UserProvider = (props) => {
-    const [users, setUsers] = useState([])
+export const UserLikesProvider = (props) => {
+    const [userLikes, setUserLikes] = useState([])
 
-    const getUsers = () => {
-        return fetch("http://localhost:8088/users")
+    const getUserLikes = () => {
+        return fetch("http://localhost:8088/userLikes?_expand=user")
             .then(res => res.json())
-            .then(setUsers); 
+            .then(setUserLikes); 
     }
 
     const addMovie = movieObj => {
@@ -22,16 +22,16 @@ export const UserProvider = (props) => {
             .then(getUsers)
     }
 
-    const deleteMovie = movieId => {
-    return fetch(`http://localhost:8088/movies/${movieId}`, {
+    const deleteLike = movieId => {
+    return fetch(`http://localhost:8088/userLikes/${movieId}`, {
         method: "DELETE"
     })
-        .then(getMovies)
+        .then(getUserLikes)
 }
 
     return (
         <UserContext.Provider value={{
-            users, getUsers, addUser, 
+            userLikes, getUserLikes, addUser, 
             deleteMovie
         }}>
             {props.children}
