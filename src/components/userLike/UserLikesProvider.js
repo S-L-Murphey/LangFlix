@@ -11,7 +11,7 @@ export const UserLikesProvider = (props) => {
             .then(setUserLikes); 
     }
 
-    const addMovie = movieObj => {
+    /*const addMovie = movieObj => {
         return fetch("http://localhost:8088/movies", {
             "method": "POST",
             "headers": {
@@ -20,7 +20,7 @@ export const UserLikesProvider = (props) => {
             body: JSON.stringify(movieObj)
         })
             .then(getUsers)
-    }
+    }*/
 
     const deleteLike = movieId => {
     return fetch(`http://localhost:8088/userLikes/${movieId}`, {
@@ -30,12 +30,12 @@ export const UserLikesProvider = (props) => {
 }
 
     return (
-        <UserContext.Provider value={{
-            userLikes, getUserLikes, addUser, 
-            deleteMovie
+        <UserLikesContext.Provider value={{
+            userLikes, getUserLikes,
+            deleteLike
         }}>
             {props.children}
-        </UserContext.Provider>
+        </UserLikesContext.Provider>
     )
 
 }
