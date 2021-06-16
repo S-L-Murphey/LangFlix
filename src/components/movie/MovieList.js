@@ -14,6 +14,7 @@ export const MovieList = () => {
     useEffect(() => {
         getMovies()
     }, [])
+
     
     useEffect(() => {
         if (searchTerms !== "") {

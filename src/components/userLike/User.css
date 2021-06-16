@@ -1,10 +1,10 @@
-.movies {
+.users {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
   
-  .movie {
+  .user {
       flex-basis: 28%;
       margin: 1em;
       padding: 1em;

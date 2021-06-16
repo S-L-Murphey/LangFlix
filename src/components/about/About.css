@@ -9,8 +9,9 @@ body {
 
   .infos {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
+    padding-top: 3em;
   }
   
   .info {

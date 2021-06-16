@@ -5,6 +5,7 @@ import "./LangFlix.css"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+import { MovieProvider } from "./movie/MovieProvider";
 
 export const LangFlix = () => (
     <>
@@ -27,9 +28,11 @@ export const LangFlix = () => (
     <Route path="/login">
       <Login />
     </Route>
+    <MovieProvider>
     <Route path="/register">
       <Register />
     </Route>
+    </MovieProvider>
   </>
 );
 

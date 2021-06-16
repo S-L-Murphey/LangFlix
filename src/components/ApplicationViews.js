@@ -5,7 +5,7 @@ import { MovieList } from "./movie/MovieList"
 import { MovieSearch } from "./movie/MovieSearch"
 import { About } from "./about/About"
 import { UserLikesProvider } from "./userLike/UserLikesProvider"
-import { UserLikeList } from "./userLike/UserProfile"
+import { UserLikeList } from "./userLike/UserLikeList"
 
 export const ApplicationViews = () => {
     return (
@@ -16,15 +16,17 @@ export const ApplicationViews = () => {
                     <MovieSearch />
                     <MovieList />
                 </Route>
-            </MovieProvider>
 
-            <UserLikesProvider>
-                <MovieProvider>
+                <UserLikesProvider>
+                    
                     <Route exact path="/userProfile">
                         <UserLikeList />
                     </Route>
-                </MovieProvider>
-            </UserLikesProvider>
+                    
+                </UserLikesProvider>
+
+            </MovieProvider>
+
 
             <Route exact path="/about">
                 <About />
