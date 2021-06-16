@@ -21,6 +21,17 @@ export const UserLikeList = () => {
         getMovies()
     }, [])
 
+    const findLikes = userLikes.filter(userLike => {
+        if (userLike.userId === userID){
+            return userLike}
+       // return parseInt(userLike.movieId.split("tt")[1])}
+    })
+
+    const foundLike = findLikes.map(findLike => {
+        return parseInt(findLike.movieId.split("tt")[1])
+    })
+    console.log(foundLike)
+
 
     const handleDelete = () => {
         deleteLike(userLikes.id)
@@ -34,25 +45,22 @@ export const UserLikeList = () => {
        <section className="users">
             {
                movies.map(movie => {
-                    console.log(parseInt(movie.imdbID.split("tt")[1]))
-                    if (parseInt(movie.imdbID.split("tt")[1]) === userLikes.map(userLike => {
-                        if (userLike.id === userID) {
-                            parseInt(userLike.movieId.split("tt")[1])}}))
+                    //console.log(parseInt(movie.imdbID.split("tt")[1]))
+                    if (foundLike.includes(parseInt(movie.imdbID.split("tt")[1]))) 
                         
                         return (
                             
                                 <div className="user" id={`user--${movie.imdbID}`}>
                                     <div className="user__title">
-                                        <h2> Hello World </h2>
-                                        {/*<img src={userLike.Poster} />
-                                        <div> {userLike.Plot} </div>
-                        <div> {parseInt(userLike.Runtime.split(" ")[0])} minutes</div>*/}
-                                    </div>
+                                    <h2> {movie.Title}</h2>
+                                        <img src={movie.Poster} />
+                                        <div> {movie.Plot} </div>
+                                        <div> {parseInt(movie.Runtime.split(" ")[0])} minutes</div>
                                     <button onClick={ handleDelete }>
                                         Delete from Watched List
                                     </button>
                                 </div>
-                            
+                            </div>
                         )
                 })
             }

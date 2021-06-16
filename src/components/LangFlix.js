@@ -28,11 +28,11 @@ export const LangFlix = () => (
     <Route path="/login">
       <Login />
     </Route>
-    <MovieProvider>
+    
     <Route path="/register">
       <Register />
     </Route>
-    </MovieProvider>
+
   </>
 );
 

@@ -1,7 +1,6 @@
-import React, { useRef, useContext, useEffect } from "react"
+import React, { useRef } from "react"
 import { useHistory } from "react-router-dom"
 import "./Login.css"
-import { MovieContext } from "../movie/MovieProvider"
 
 export const Register = (props) => {
     const firstName = useRef()
@@ -11,25 +10,10 @@ export const Register = (props) => {
     const conflictDialog = useRef()
     const history = useHistory()
 
-    const { movies, getMovies } = useContext(MovieContext)
 
-    useEffect(() => {
-        getMovies()
-    }, [])
-
-    const languages = "Mandarin Chinese, Spanish, English, Hindi/Urdu, Arabic, Bengali, Portuguese, Russian, Japanese, German, Javanese, Punjabi, Wu, French, Telugu, Vietnamese, Marathi, Korean, Tamil, Italian, Turkish,Cantonese/Yue"
+    const languages = "Mandarin Chinese, Spanish, English, Hindi/Urdu, Arabic, Bengali, Portuguese, Russian, Japanese, German, Japanese, Punjabi, Wu, French, Telugu, Vietnamese, Marathi, Korean, Tamil, Italian, Turkish,Cantonese/Yue"
     
     const languageList = languages.split(", ")
-    console.log(languageList)
-  
-   const setId = (item, index) => {
-       const fullName = "name: "+ item;
-       return fullName
-   }
-
-   const languageLoop = languageList.map(setId)
-  // console.log(languageLoop)
-    
 
     const existingUserCheck = () => {
         return fetch(`http://localhost:8088/users?email=${email.current.value}`)
@@ -91,13 +75,13 @@ export const Register = (props) => {
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
-{/* Drop down for language selection feature */}
+
                 <fieldset>
                 <div className="form-group">
                     <label htmlFor="language">What Language are you Learning?: </label>
                     <select name="languageId" id="languageId" className="form-control" >
                         <option value="0">Select a language</option>
-                        
+
                                 {languageList.map((element => <option>{element}</option>)
                                 )}
                                    
