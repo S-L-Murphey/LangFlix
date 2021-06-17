@@ -14,7 +14,7 @@ export const MovieProvider = (props) => {
     }
 
     const addMovie = movieObj => {
-        return fetch("http://localhost:8088/movies", {
+        return fetch("http://localhost:8088/userLikes", {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"

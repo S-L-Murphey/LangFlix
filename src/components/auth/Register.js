@@ -6,14 +6,18 @@ export const Register = (props) => {
     const firstName = useRef()
     const lastName = useRef()
     const email = useRef()
+    const language = useRef()
     const verifyPassword = useRef()
     const conflictDialog = useRef()
     const history = useHistory()
 
 
-    const languages = "Mandarin Chinese, Spanish, English, Hindi/Urdu, Arabic, Bengali, Portuguese, Russian, Japanese, German, Japanese, Punjabi, Wu, French, Telugu, Vietnamese, Marathi, Korean, Tamil, Italian, Turkish,Cantonese/Yue"
+    const languages = [
+        {id: 1, language:"Mandarin Chinese"},
+        {id: 2, language:"Spanish"}, {id: 3, language:"English"}, {id: 4, language:"Hindi/Urdu"}, {id: 5, language:"Arabic"}, {id: 6, language:"Bengali"}, {id: 7, language: "Portuguese"}, {id: 8, language: "Russian"}, {id: 9, language: "Japanese"}, {id: 10, language: "German"}, {id: 11, language: "Japanese"}, {id: 12, language: "Punjabi"}, {id: 13, language: "Wu"}, {id: 14, language: "French"}, {id: 15, language:"Telugu"}, {id: 16, language:"Vietnamese"}, {id: 17, language:"Marathi"}, {id: 18, language:"Korean"}, {id: 19, language:"Tamil"}, {id: 20, language:"Italian"}, {id: 21, language:"Turkish"},{id: 22, language:"Cantonese/Yue"}
+    ]
     
-    const languageList = languages.split(", ")
+    //const languageList = languages.split(", ")
 
     const existingUserCheck = () => {
         return fetch(`http://localhost:8088/users?email=${email.current.value}`)
@@ -35,7 +39,8 @@ export const Register = (props) => {
                         },
                         body: JSON.stringify({
                             email: email.current.value,
-                            name: `${firstName.current.value} ${lastName.current.value}`
+                            name: `${firstName.current.value} ${lastName.current.value}`,
+                            language: language.current.value
                         })
                     })
                         .then(res => res.json())
@@ -79,12 +84,13 @@ export const Register = (props) => {
                 <fieldset>
                 <div className="form-group">
                     <label htmlFor="language">What Language are you Learning?: </label>
-                    <select name="languageId" id="languageId" className="form-control" >
+                    <select ref={language} name="languageId" id="languageId" className="form-control"  >
                         <option value="0">Select a language</option>
 
-                                {languageList.map((element => <option>{element}</option>)
+                                {languages.map((element => {
+                                return <option value={element.language}>{element.language}</option>})
                                 )}
-                                   
+                                 
                         ))
                     </select>
                 </div>

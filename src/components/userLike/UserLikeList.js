@@ -65,31 +65,5 @@ export const UserLikeList = () => {
                 })
             }
         </section> 
-
-        /*<section className="users">
-            {
-                userLikes.map(userLike => {
-                  console.log(parseInt(userLike.movieId.split("tt")[1]))
-                    if (parseInt(userLike.movieId.split("tt")[1]) === movies.map(movie => {parseInt(movie.imdbID.split("tt")[1])}))
-                        
-                        return (
-                            <>
-                                <div className="user" id={`user--${userLike.movieId}`}>
-                                    <div className="user__title">
-                                        <h2> {movies.map(movie => {movie.Title})}</h2>
-                                        {/*<img src={movie.Poster} />
-                                        <div> {movie.Plot} </div>
-                                        <div> {parseInt(movie.Runtime.split(" ")[0])} minutes</div>}
-                                    </div>
-                                    <button onClick={ handleDelete }>
-                                        Delete from Watched List
-                                    </button>
-                                </div>
-                            </>
-                        )
-                })
-            }
-        </section>*/
-    
     )
 }
