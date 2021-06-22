@@ -22,16 +22,21 @@ export const UserLikesProvider = (props) => {
             .then(getUsers)
     }*/
 
-    const deleteLike = movieId => {
-    return fetch(`http://localhost:8088/userLikes/${movieId}`, {
-        method: "DELETE"
+    const getLikeById = (id) => {
+        return fetch(`http://localhost:8088/userLikes/${id}`)
+        .then(res=> res.json())
+    }
+
+    const deleteLike = userLike => {
+    return fetch(`http://localhost:8088/userLikes/${userLike}`, {
+        method: "DELETE",
     })
         .then(getUserLikes)
 }
 
     return (
         <UserLikesContext.Provider value={{
-            userLikes, getUserLikes,
+            userLikes, getUserLikes, getLikeById,
             deleteLike
         }}>
             {props.children}

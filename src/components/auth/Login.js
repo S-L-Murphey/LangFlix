@@ -23,7 +23,7 @@ export const Login = props => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("langflix_customer", exists.id)
-                    history.push("/")
+                    history.push("/movies")
                 } else {
                     existDialog.current.showModal()
                 }

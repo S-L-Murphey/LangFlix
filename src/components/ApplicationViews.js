@@ -7,6 +7,7 @@ import { About } from "./about/About"
 import { UserLikesProvider } from "./userLike/UserLikesProvider"
 import { UserLikeList } from "./userLike/UserLikeList"
 import { UserProvider } from "./user/UserProvider"
+import { UserProgressBar } from "./user/UserProgressBar"
 
 export const ApplicationViews = () => {
     return (
@@ -23,8 +24,11 @@ export const ApplicationViews = () => {
                 <UserLikesProvider>
 
                     <Route exact path="/userProfile">
+                       
                         <UserLikeList />
                     </Route>
+
+                    
 
                 </UserLikesProvider>
 

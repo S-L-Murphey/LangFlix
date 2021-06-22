@@ -48,4 +48,8 @@ body {
   .button:hover {
     background-color: #555;
   }
+
+  .about {
+      padding-bottom: 1.25rem;
+  }
   

@@ -9,7 +9,7 @@ import { MovieProvider } from "./movie/MovieProvider";
 
 export const LangFlix = () => (
     <>
-    <h1>Lang Flix</h1>
+    <h1 className="title">Lang Flix</h1>
     <Route
       render={() => {
         if (localStorage.getItem("langflix_customer")) {
