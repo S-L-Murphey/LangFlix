@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 export const MovieList = () => {
 
     //const { movies, getMovies, searchTerms, addMovie } = useContext(MovieContext)
-    const {movies, getMovieById, getMovieBySearch, searchTerms, addMovie } = useContext(MovieContext)
+    const {movies, getMovieById, getMovieBySearch, searchTerms, addMovie, movieTitles } = useContext(MovieContext)
     const {users, getUsers } = useContext(UserContext)
     const [ filteredMovies, setFiltered ] = useState([])
     const history = useHistory()
@@ -22,9 +22,6 @@ export const MovieList = () => {
     const currentUserLang = userLangs.map(ul => ul.language)
     const myLang = currentUserLang[0]
 
-    useEffect(() => {
-        getMovieById()
-    }, [])
 
     useEffect(() => {
         getMovieBySearch()
@@ -50,8 +47,6 @@ const handleClickSaveMovie = (event) => {
         .then(() => history.push("/userProfile"))
     }
 
-
-      console.log(filteredMovies)
 
     return (
         
