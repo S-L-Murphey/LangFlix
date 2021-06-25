@@ -31,7 +31,7 @@ export const UserLikesProvider = (props) => {
     return fetch(`http://localhost:8088/userLikes/${userLike}`, {
         method: "DELETE",
     })
-        .then(getUserLikes)
+       // .then(getUserLikes)
 }
 
     return (

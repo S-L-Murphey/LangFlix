@@ -41,10 +41,10 @@ const handleClickSaveMovie = (event) => {
       const [, postId] = event.target.id.split("--")
         
       const newUserLike = {
-        movieId: postId,
+        filmIdentifier: postId,
         userId: userID };
-      return addMovie(newUserLike)
-        .then(() => history.push("/userProfile"))
+      return addMovie(newUserLike).then(window.alert("Added to your Watch List"))
+        .then(() => history.push("/movies"))
     }
 
 

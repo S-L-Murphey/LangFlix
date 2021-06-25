@@ -9,55 +9,71 @@ export const UserProgressBar = () => {
     const userID = parseInt(localStorage.getItem("langflix_customer"))
     const { userLikes, getUserLikes, deleteLike } = useContext(UserLikesContext)
     const { movies, getMovies } = useContext(MovieContext)
+    const { movieTitles, getMovieById } = useContext(MovieContext)
+    const [userLike, setUserLike] = useState([])
 
 
     useEffect(() => {
         getUserLikes()
     }, [])
 
-   /* useEffect(() => {
-        getMovieById()
-    }, [])
+    //find just the likes that are of the current user
+    const userLikeLog = userLikes.map(ul => {
+        if (ul.userId === userID){
+            return ul
+        }})
+
+        console.log(userLikeLog)
 
     useEffect(() => {
-        getMovieBySearch()
-    }, [])*/
+      
+        const promises = userLikeLog.map(ull => (
+            getMovieById(ull.filmIdentifier))
+        );
+        Promise.all(promises).then(data => {
+            setUserLike(data)
+        })
+     }, [userLikes])
 
-    const userTargetLanguage = userLikes.map(ul=>{
-        if (ul.userId === userID) {
-            return ul.user.language
+    //find the target language of the current user
+    const userTargetLanguage = userLikes.map(lang=>{
+        if (lang.userId === userID) {
+            return lang.user.language
         }
     })
 
     console.log(userTargetLanguage[0])
-    //find just the likes of the currently logged in user
-    const findLikes = userLikes.filter(userLike => {
-        if (userLike.userId === userID){
-            return userLike}
-       // return parseInt(userLike.movieId.split("tt")[1])}
-    })
+    console.log(userLike)
 
-    const foundLike = findLikes.map(findLike => {
-        return parseInt(findLike.movieId.split("tt")[1])
+    const justIds = userLikeLog.map(ji => {
+        return ji.filmIdentifier
     })
+    console.log(justIds)
+    
 
-    const foundRunTime = movies.filter(m =>{
-        if (foundLike.includes(parseInt(m.imdbID.split("tt")[1]))){
-            return parseInt(m.Runtime.split(" ")[0])
+    const foundRunTime = userLike.filter(m =>{
+        if (justIds.includes(m.imdbID)){
+            return m.Runtime
         }
     })
+    console.log(foundRunTime)
+    
     const totalRunTime = foundRunTime.map(s =>{
         return parseInt(s.Runtime.split(" ")[0])
     })
+
+    console.log(totalRunTime)
     const userTotalImmersion = totalRunTime.reduce((a, b)=> a + b, 0)
     //console.log(totalRunTime.reduce((a, b)=> a + b, 0))
-  
+    const percentage =(userTotalImmersion/60000) * 100
     
     return (
    
        <section className="users">
             
-               <div className="user">You have immersed in {userTargetLanguage[0]} for a total of <strong>{userTotalImmersion} Minutes</strong></div>
+               <div className="user">You have immersed in {userTargetLanguage[0]} for a total of <strong>{userTotalImmersion} Minutes.</strong> <p>You are {percentage.toFixed(2)}% of the way to fluency!</p></div>
+
+              
                 
 
         </section> 
