@@ -10,12 +10,10 @@ import { useHistory, Link } from 'react-router-dom'
 export const UserLikeList = () => {
 
     const userID = parseInt(localStorage.getItem("langflix_customer"))
-    const { userLikes, getUserLikes, deleteLike } = useContext(UserLikesContext)
-    const { movieTitles, getMovieById } = useContext(MovieContext)
+    const { userLikes, getUserLikes } = useContext(UserLikesContext)
+    const { getMovieById } = useContext(MovieContext)
     const [userLike, setUserLike] = useState([])
-
-
-    const history = useHistory()
+    
 
     const userLikeLog = userLikes.map(ul => {
         if (ul.userId === userID) {
@@ -23,7 +21,11 @@ export const UserLikeList = () => {
         }
     })
 
-    //console.log(userLikeLog)
+    const removeUndefinedLikes = userLikeLog.filter(element => element !== undefined)
+    console.log(removeUndefinedLikes)
+
+
+    console.log(userID)
     console.log(userLikeLog)
 
     useEffect(() => {
@@ -32,7 +34,7 @@ export const UserLikeList = () => {
 
     useEffect(() => {
 
-        const promises = userLikeLog.map(ull => (
+        const promises = removeUndefinedLikes.map(ull => (
             getMovieById(ull.filmIdentifier))
         );
         Promise.all(promises).then(data => {
@@ -40,10 +42,7 @@ export const UserLikeList = () => {
         })
     }, [userLikes])
 
-    //const newMovieTitles = []
-    // newMovieTitles.push(movieTitles)
     console.log(userLike)
-
 
     //find just the likes of the currently logged in user
     const findLikes = userLikes.filter(userLike => {
@@ -60,22 +59,6 @@ export const UserLikeList = () => {
         return (findLike.filmIdentifier)
     })
     console.log(foundLike)
-    /*
-        const foundRunTime = newMovieTitles.map(m => {
-            if (foundLike.includes(m.imdbID)) {
-                return parseInt(m.Runtime.split(" ")[0])
-            }
-        })
-        console.log(foundRunTime[0])
-    */
-    /*const handleDelete = () => {
-        deleteLike(findDefined.id)
-            .then(() => {
-                history.push("/userProfile")
-            })
-    }*/
-
-
 
     return (
 
@@ -83,8 +66,7 @@ export const UserLikeList = () => {
 
             {
                 userLike.map(movie => {
-                    //const findMatch = findLikes.filter(ul =>ul.filmIdentifier === movie.imdbID)
-                    //console.log(parseInt(movie.imdbID.split("tt")[1]))
+                    
                     if (foundLike.includes((movie.imdbID))) {
 
                         return (
