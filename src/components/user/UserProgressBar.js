@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { MovieContext } from "../movie/MovieProvider"
 import { UserLikesContext } from "../userLike/UserLikesProvider"
 import "./User.css"
+import { Link } from 'react-router-dom'
 
 export const UserProgressBar = () => {
 
@@ -81,8 +82,12 @@ export const UserProgressBar = () => {
 
         <section className="users">
 
-            <div className="user">You have immersed in {emptyArray[2]} for a total of <strong>{userTotalImmersion} Minutes.</strong> <p>You are {percentage.toFixed(2)}% of the way to fluency!</p></div>
+            <div className="user">You have immersed in <strong>{emptyArray[0]}</strong> for a total of <strong>{userTotalImmersion} Minutes.</strong> <p>You are {percentage.toFixed(2)}% of the way to fluency!</p>
 
+            <Link to= {`/userProfile/edit/${userID}`}><button>
+                                        Edit Your Language?
+                                    </button></Link>
+                                    </div>
         </section>
     )
 }

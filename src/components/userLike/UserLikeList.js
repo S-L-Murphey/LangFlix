@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { MovieContext } from "../movie/MovieProvider"
 import { UserLikesContext } from "./UserLikesProvider"
 import "./User.css"
-import { useHistory, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
