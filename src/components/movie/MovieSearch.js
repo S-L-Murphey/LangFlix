@@ -1,17 +1,28 @@
-import React, { useContext } from "react"
+import React, { useContext, useRef } from "react"
 import { MovieContext } from "./MovieProvider"
 import "./Movie.css"
 
 export const MovieSearch = () => {
   const { setSearchTerms } = useContext(MovieContext)
 
+  const searchInfo = useRef()
+  const handleClick = () => {
+      setSearchTerms(searchInfo.current.value)
+  }
+
   return (
     <>
-      Movie search:
-      <input type="text"
+    <div className="search">
+      Movie search:</div>
+      <div className="search__box">
+      <input ref={searchInfo} type="text" id="text"
         className="input--wide"
-        onKeyUp={(event) => setSearchTerms(event.target.value)}
-        placeholder="Search for movie by title... " />
+        
+        placeholder="Search for movie by title" />
+        </div>
+        <button onClick={handleClick}>Search</button>
+        
+        
     </>
   )
 }

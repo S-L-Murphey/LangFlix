@@ -9,8 +9,9 @@ body {
 
   .infos {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
+    padding-top: 3em;
   }
   
   .info {
@@ -46,5 +47,9 @@ body {
   
   .button:hover {
     background-color: #555;
+  }
+
+  .about {
+      padding-bottom: 1.25rem;
   }
   

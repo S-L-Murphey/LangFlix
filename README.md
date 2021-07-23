@@ -1,71 +1,53 @@
-# Getting Started with Create React App
+# Front-End Capstone - NSS Cohort 48 - Lang-Flix
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+As a learner of a second-language, I've tried my fairshare of langage-learning apps. While many of these apps claim to be the *fastest* or the *easiest* way to **learn** a language, whether or not any of the users can become actually **fluent** using their app is yet to be seen.
+What most people *have seen* is someone living in another country for an extended period of time and suddenly becoming fluent in that country's language. Seemingly by magic, as no apps or classes were implemented in gaining this fluency. **Immersion** is the only way we know works in the acquiring of a second language. No app, class, or method can take it's place. However, we all cannot just takeoff to another country to expose ourself to an immersive environment...that's where watching foreign or dubbed films and television comes into play. Simply watching films and shows in your target-language is fastly becoming agreed upon to be one of the most effective means of learning a language. That's where Lang-Flix comes into play.
 
-In the project directory, you can run:
+**Lang-Flix** is an immersion tracking app for language learners. Users sign up, select the language they're learning, and then are able to track the amount of time they've spent being immersed in their target language. Using the IMDb API, the user can search for the movie they've watched and add it to their profile. Their profile then tracks the runtime and tallies it to a total runtime. This total gives the user a goal of 1000 hours. Their profile also shows the movie titles, posters, and plots of the movies, so they can review everything they've watched along their journey. After reaching 1000 hours of immersion, I guarantee they will have more competence in that language than any class or app could provide; all while just watching cool movies.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Users can create a personal account and their target language from an extensive language list
+- Users can search a movie database by title and view all the movies that match that title
+- Users can save movies they have watched to their personal profile 
+- Users can delete movies from their personal profile
+- Users can edit which language they are learning
 
-### `npm test`
+# How to run this application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**NOTE ON AUTHENTICATION** This application uses mock authentication which is purely for demonstration purposes. Therefore the login is completely insecure and would never be implemented in a professional application. Please do not use your personal email when creating an account...
 
-### `npm run build`
+### Installing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone this repository and change to the directory in the terminal.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git@github.com:S-L-Murphey/LangFlix.git
+cd lang-flix
+```
+2. Access the data
+[Click Here](https://github.com/S-L-Murphey/Lang-Flix-API)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Launch the client.
+```
+npm install
+npm start
+```
+**Demo User Credentials**
+Email login: sean@murphey.com
 
-### `npm run eject`
+##Technologies Used
+- Javascript
+- React
+- IMDb Alternative API
+- JSON Server
+- HTML5
+- CSS3
+- Git/Github
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Lang-Flix at a Glance
+![](src/LangFlixGif.gif)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# LangFlix

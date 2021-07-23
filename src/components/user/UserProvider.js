@@ -11,31 +11,23 @@ export const UserProvider = (props) => {
             .then(setUsers); 
     }
 
-    const addMovie = movieObj => {
-        return fetch("http://localhost:8088/movies", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(movieObj)
+    const updateUser = user => {
+        return fetch(`http://localhost:8088/users/${user.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(user)
         })
-            .then(getUsers)
-    }
-
-    const deleteMovie = movieId => {
-    return fetch(`http://localhost:8088/movies/${movieId}`, {
-        method: "DELETE"
-    })
-        .then(getMovies)
-}
+          .then(getUsers)
+      }
 
     return (
         <UserContext.Provider value={{
-            users, getUsers, addUser, 
-            deleteMovie
+            users, getUsers, updateUser
         }}>
             {props.children}
         </UserContext.Provider>
     )
 
-}
+    }

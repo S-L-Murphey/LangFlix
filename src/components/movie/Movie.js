@@ -3,7 +3,7 @@
 
 
     const getMovies = () => {
-        return fetch("https://movie-database-imdb-alternative.p.rapidapi.com/?i=tt4154796&r=json", {
+        return fetch("https://movie-database-imdb-alternative.p.rapidapi.com", {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "371b53e263msh23e127f5f88ef58p100627jsnf5082aed932c",

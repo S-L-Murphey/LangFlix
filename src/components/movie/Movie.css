@@ -10,3 +10,13 @@
       padding: 1em;
       border: 1px solid goldenrod;
   }
+
+  .search {
+      text-align: center;
+      padding: 1rem;
+  }
+  .search__box{
+      text-align: center;
+      padding-bottom: 1.5rem;
+  }
+  

@@ -4,21 +4,50 @@ import { MovieProvider } from "./movie/MovieProvider"
 import { MovieList } from "./movie/MovieList"
 import { MovieSearch } from "./movie/MovieSearch"
 import { About } from "./about/About"
+import { UserLikesProvider } from "./userLike/UserLikesProvider"
+import { UserLikeList } from "./userLike/UserLikeList"
+import { UserProvider } from "./user/UserProvider"
+import { UserProgressBar } from "./user/UserProgressBar"
+import { UserLikeDetail } from "./userLike/UserLikeDetail"
+import { UserDetail } from "./user/UserDetail"
 
 export const ApplicationViews = () => {
     return (
         <>
-            
+
             <MovieProvider>
-                <Route exact path="/movies">
-                    <MovieSearch />
-                    <MovieList />
-                </Route>
+                <UserProvider>
+                    <Route exact path="/movies">
+                        <MovieSearch />
+                        <MovieList />
+                    </Route>
+                </UserProvider>
+
+                <UserLikesProvider>
+
+                    <Route exact path="/userProfile">
+                        <UserProgressBar />
+                        <UserLikeList />
+                    </Route>
+
+                    
+                        <Route exact path="/userProfile/detail/:filmIdentifier">
+                            <UserLikeDetail />
+                        </Route>
+                    <UserProvider>
+                        <Route exact path="/userProfile/edit/:userID">
+                            <UserDetail />
+                        </Route>
+                        </UserProvider>
+
+                </UserLikesProvider>
+
             </MovieProvider>
 
+
             <Route exact path="/about">
-                    <About/>
-                </Route>
+                <About />
+            </Route>
 
         </>
     )
