@@ -39,7 +39,7 @@ npm start
 **Demo User Credentials**
 Email login: sean@murphey.com
 
-##Technologies Used
+## Technologies Used
 - Javascript
 - React
 - IMDb Alternative API
