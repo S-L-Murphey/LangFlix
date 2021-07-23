@@ -6,25 +6,27 @@ import { useParams, useHistory } from "react-router-dom"
 export const UserDetail = () => {
     const userID = parseInt(localStorage.getItem("langflix_customer"))
     const { users, getUsers, updateUser } = useContext(UserContext)
-    const [userLanguage, setUserLanguage] = useState({})
+    const [userLanguage, setUserLanguage] = useState([])
     const history = useHistory();
     const  currentUser  = useParams();
     const language = useRef()
     //const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
+   /* useEffect(() => {
         getUsers()
-    }, [])
+    }, [])*/
 
     console.log(users)
 
     useEffect(() => {
 
+        getUsers()
+
         const thisUser = users.find(element => element.id === userID)
 
         setUserLanguage(thisUser)
 
-    }, [currentUser])
+    }, [])
 
 
     const languages = [
@@ -44,7 +46,7 @@ export const UserDetail = () => {
 
     const handleSaveLanguage = () => {
         if (currentUser){
-         
+           
             updateUser({
                 id: userLanguage.id,
                 name: userLanguage.name,
