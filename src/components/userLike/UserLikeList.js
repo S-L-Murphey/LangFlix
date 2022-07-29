@@ -22,11 +22,6 @@ export const UserLikeList = () => {
     })
 
     const removeUndefinedLikes = userLikeLog.filter(element => element !== undefined)
-    console.log(removeUndefinedLikes)
-
-
-    console.log(userID)
-    console.log(userLikeLog)
 
     useEffect(() => {
         getUserLikes()
@@ -42,8 +37,6 @@ export const UserLikeList = () => {
         })
     }, [userLikes])
 
-    console.log(userLike)
-
     //find just the likes of the currently logged in user
     const findLikes = userLikes.filter(userLike => {
         if (userLike.userId === userID) {
@@ -51,14 +44,12 @@ export const UserLikeList = () => {
         }
 
     })
-    console.log(findLikes)
 
     //go throught the likes of the currently logged in user and pull out the foreign key
     //of the movie info
     const foundLike = findLikes.map(findLike => {
         return (findLike.filmIdentifier)
     })
-    console.log(foundLike)
 
     return (
 

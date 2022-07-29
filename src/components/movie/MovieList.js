@@ -30,7 +30,7 @@ export const MovieList = () => {
     useEffect(() => {
         if (searchTerms !== "") {
          setFiltered(getMovieBySearch(searchTerms))
-          const subset = movies.filter(movie => movie.Title.toLowerCase().includes(searchTerms.toLowerCase()))
+          const subset = movies?.filter(movie => movie.Title.toLowerCase().includes(searchTerms.toLowerCase()))
           setFiltered(subset)
         } 
       }, [searchTerms, movies])
@@ -53,7 +53,7 @@ const handleClickSaveMovie = (event) => {
 
         <section className="movies">
             {
-                filteredMovies.map(movie => {
+                filteredMovies?.map(movie => {
                      //if (movie.Language.includes(myLang))
                         return (
                             <>
